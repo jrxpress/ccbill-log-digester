@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Operation type:</strong>
+  <%= @log.operation_type %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @log.date %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @log.username %>
+</p>
+
+<p>
+  <strong>Second date:</strong>
+  <%= @log.second_date %>
+</p>
+
+<p>
+  <strong>Ip:</strong>
+  <%= @log.ip %>
+</p>
+
+<%= link_to 'Edit', edit_log_path(@log) %> |
+<%= link_to 'Back', logs_path %>

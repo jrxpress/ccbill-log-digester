@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  operation_type: MyString
+  date: MyString
+  username: MyString
+  second_date: MyString
+  ip: MyString
+
+two:
+  operation_type: MyString
+  date: MyString
+  username: MyString
+  second_date: MyString
+  ip: MyString
