@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140414184914) do
+ActiveRecord::Schema.define(version: 20140414185544) do
 
   create_table "logs", force: true do |t|
     t.string   "operation_type"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20140414184914) do
     t.string   "ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "site"
   end
 
 end
