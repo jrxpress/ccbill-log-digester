@@ -13,18 +13,21 @@
   </thead>
 
   <tbody>
-    <% @logs.each do |log| %>
+    <%# @logs.each do |log| %>
       <tr>
-        <td><%= log.operation_type %></td>
-        <td><%= log.date %></td>
-        <td><%= log.username %></td>
-        <td><%= log.second_date %></td>
-        <td><%= log.ip %></td>
-        <td><%= link_to 'Show', log %></td>
-        <td><%= link_to 'Edit', edit_log_path(log) %></td>
-        <td><%= link_to 'Destroy', log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%#= log.operation_type %></td>
+        <td><%#= log.date %></td>
+        <td><%#= log.username %></td>
+        <td><%#= log.second_date %></td>
+        <td><%#= log.ip %></td>
+        <td><%#= link_to 'Show', log %></td>
+        <td><%#= link_to 'Edit', edit_log_path(log) %></td>
+        <td><%#= link_to 'Destroy', log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
+    <%# end %>
+
+    <%= pie_chart Log.group(:operation_type).count %>
+
   </tbody>
 </table>
 

@@ -12,6 +12,17 @@ class LogsController < ApplicationController
   def show
   end
 
+
+  def import
+    lines = File.readlines('/var/www/digester/tmp/ccbill.log')
+    lines.each do |l|
+      s = l.split(/\|/)
+      log = Log.new
+      log.create_from_array s
+      log.save
+    end
+  end
+
   # GET /logs/new
   def new
     @log = Log.new
@@ -61,6 +72,7 @@ class LogsController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_log
@@ -69,6 +81,6 @@ class LogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def log_params
-      params.require(:log).permit(:operation_type, :date, :username, :second_date, :ip)
+      params.require(:log).permit(:operation_type, :date, :username, :second_date,  :ip, :site)
     end
 end
