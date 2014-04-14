@@ -27,7 +27,7 @@
     <%# end %>
 
     <%= pie_chart Log.group(:operation_type).count %>
-
+    <%= line_chart Log.group(:date).count %>
   </tbody>
 </table>
 
