@@ -5,6 +5,8 @@ class LogsController < ApplicationController
   # GET /logs.json
   def index
     @logs = Log.all
+    @rejected = Log.joins('logs join `logs` l2 on l2.`username` = `logs`.`username`')
+      .where('logs.operation_type = \'ADD-111\' and l2.operation_type=\'REMOVE-111\' and ABS(l2.date-logs.date) < 100')
   end
 
   # GET /logs/1
@@ -16,9 +18,8 @@ class LogsController < ApplicationController
   def import
     lines = File.readlines('/var/www/digester/tmp/ccbill.log')
     lines.each do |l|
-      s = l.split(/\|/)
       log = Log.new
-      log.create_from_array s
+      log.create_from_array l.split(/\|/)
       log.save
     end
   end

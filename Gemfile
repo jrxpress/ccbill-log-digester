@@ -38,5 +38,11 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+#Group date
+gem 'groupdate'
+
 #Graphs
 gem 'chartkick', '~> 1.2.4'
+
+#Haml better html
+gem "haml-rails"

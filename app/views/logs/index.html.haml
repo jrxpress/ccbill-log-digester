@@ -1,0 +1,31 @@
+%section.container
+  %h1= "Listing logs"
+  =Log::ERR_LOGS.to_s
+  
+  .content
+    %h2= "Op types"
+    = pie_chart @logs.group(:operation_type).count
+    %h2= "Remove ok by week"
+    = area_chart @logs.where(:operation_type => Log::OP.reverse.first.to_s + Log::ERR_LOGS_SEPARATOR + Log::ERR_LOGS.first.first.to_s).group_by_week(:date).count
+
+    %h2= "Remove ok by month"
+    = area_chart @logs.where(:operation_type => Log::OP.reverse.first.to_s + Log::ERR_LOGS_SEPARATOR + Log::ERR_LOGS.first.first.to_s).group_by_month(:date).count
+    
+    %h2= "Op types by week"
+    =area_chart @logs.group(:operation_type).map{|log|{name: log.operation_type, data: @logs.where(operation_type:log.operation_type).group_by_week(:date).count}}
+
+    %h2= "Op types by month"
+    =area_chart @logs.group(:operation_type).map{|log|{name: log.operation_type, data: @logs.where(operation_type:log.operation_type).group_by_month(:date).count}}
+
+    %h2= "Rejected"
+    =line_chart @rejected.group_by_day('logs.date').count
+
+    %h2= "Rejected by month"
+    =line_chart @rejected.group_by_month('logs.date').count
+
+    %h2= "Rejected by week"
+    =line_chart @rejected.group_by_week('logs.date').count
+
+
+    %h2= "AVG time user on site"
+    
