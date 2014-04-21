@@ -26,6 +26,10 @@
     %h2= "Rejected by week"
     =line_chart @rejected.group_by_week('logs.date').count
 
+    %h2= "Errors.log"
+    =area_chart @logs.where('operation_type not like \'%111\'').group_by_week(:date).count
+
+    
 
     %h2= "AVG time user on site"
     

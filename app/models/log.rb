@@ -21,13 +21,13 @@ class Log < ActiveRecord::Base
 
 	ERR_LOGS_SEPARATOR = "-"
 
-	def create_from_array (s)
+	def create_from_array (s, site)
 		self.operation_type = s[0]
 		self.date = s[1]
 		self.username = s[2]
 		self.second_date = s[3]
 		self.ip = s[4]
-		self.site = "casas"
+		self.site = site
 	end
 	
 	
