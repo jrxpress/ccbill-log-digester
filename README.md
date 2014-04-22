@@ -1,4 +1,5 @@
-# CCBill Log Digester
+CCBill Log Digester
+=========
 
 Display ccbill.com logs as charts
 
@@ -10,11 +11,13 @@ This preliminary version "digests" the log files that ccbill save on your site. 
 * Errors %
 * Errors over time by type
 
-## Version
+Version
+----
 
 1.0
 
-## Tech
+Tech
+-----------
 
 CCBill Log Digester uses a number of open source projects to work properly:
 
@@ -24,26 +27,36 @@ CCBill Log Digester uses a number of open source projects to work properly:
 * [haml] - Very easy to use html
 * [groupdate] - Group dates by day, week, month, ...
 
-## Installation
-
-$ git clone https://github.com/martinbrambati/ccbill-log-digester digester
-$ bundle install
-$ change config/database.yml configuration
-$ rails s
 
 
-## Configuration
+Installation
+--------------
+
+Source
+
+```sh
+git clone https://github.com/martinbrambati/ccbill-log-digester digester
+cd digester
+bundle install
+change config/database.yml configuration
+rails s
+```
+
+Configuration
+---------------
 
 Import logs from production logs
+```sh
+scp scp user@produ:/routetolog/ccbill.log tmp/ccbill.log
+change the log route in logs_controller.rb:19
+enter http://localhost:3000/logs/import?site=site_name
+```
 
-$ scp scp user@produ:/routetolog/ccbill.log tmp/ccbill.log
-$ change the log route in logs_controller.rb:19
-$ enter http://localhost:3000/logs/import?site=site_name
-
-
-## License
+License
+----
 
 MIT
+
 
 **Free Software, Hell Yeah!**
 
