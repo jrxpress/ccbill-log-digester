@@ -1,13 +1,16 @@
 CCBill Log Digester
 =========
 
-A JavaScript helper to track form events via Google Analytic Events.
+Display ccbill.com logs as charts
 
-This little js file will help you to track wich fields are not completted or passed out by users in your web forms. It tracks 2 Google Analytic Events, one that indicates that the field has been completted and the other if it was ignored:
+This preliminary version "digests" the log files that ccbill save on your site. It shows you important data like:
 
-  - skipped | email |    3 times    
-  - completed |    comment	| 2	times
-   
+* Operations % by type
+* Removes ok over time (month, week)
+* User-rejects by ccbill over time
+* Errors %
+* Errors over time by type
+
 Version
 ----
 
@@ -16,50 +19,37 @@ Version
 Tech
 -----------
 
-FunnelForm uses a number of open source projects to work properly:
+CCBill Log Digester uses a number of open source projects to work properly:
 
-* [CofeeScript] - Better scripting
-* [jQuery] - duh 
-* [QUnit] - The test framework
-* [Grunt] - Run forest! 
+* [Ruby on Rails] - The frame
+* [chartkick] - Very easy to use charts
+* [mysql2] - The db
+* [haml] - Very easy to use html
+* [groupdate] - Group dates by day, week, month, ...
+
+
 
 Installation
 --------------
 
-Contributors (please, please)
+Source
+
 ```sh
-git clone https://github.com/martinbrambati/funnelform funnelform
-cd funnelform
-npm install
-grunt
-```
-
-End user
-```sh
-
-download minified version /build/trackform.min.js
-download src version /src/trackform.js
-
+git clone https://github.com/martinbrambati/ccbill-log-digester digester
+cd digester
+bundle install
+change config/database.yml configuration
+rails s
 ```
 
 Configuration
 ---------------
 
+Import logs from production logs
 ```sh
-
-<script src="http://code.jquery.com/jquery.js"></script>
-<script src="../../build/trackform.min.js"></script>
-
-<script>
-
-  $(document).ready(function(){
-    formTracker.formName="funnel_form";
-	  tracker = _gaq;
-		formTracker.init();
-	});
-
-</script>
-
+scp scp user@produ:/routetolog/ccbill.log tmp/ccbill.log
+change the log route in logs_controller.rb:19
+enter http://localhost:3000/logs/import?site=site_name
 ```
 
 License
@@ -70,8 +60,8 @@ MIT
 
 **Free Software, Hell Yeah!**
 
-[javascript]:http://en.wikipedia.org/wiki/JavaScript
-[qunit]:https://qunitjs.com/
-[jQuery]:http://jquery.com
-[Grunt]:http://gruntjs.com/getting-started#working-with-an-existing-grunt-project
-[CofeeScript]:http://coffeescript.org/
+[Ruby on Rails]:http://rubyonrails.org/
+[mysql2]:https://rubygems.org/gems/mysql2
+[chartkick]:http://chartkick.com/
+[haml]:http://rubygems.org/gems/haml
+[groupdate]:https://github.com/ankane/groupdate
