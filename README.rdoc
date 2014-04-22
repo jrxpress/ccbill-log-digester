@@ -1,5 +1,4 @@
 # CCBill Log Digester
-=========
 
 Display ccbill.com logs as charts
 
@@ -12,12 +11,10 @@ This preliminary version "digests" the log files that ccbill save on your site. 
 * Errors over time by type
 
 ## Version
-----
 
 1.0
 
 ## Tech
------------
 
 CCBill Log Digester uses a number of open source projects to work properly:
 
@@ -27,13 +24,7 @@ CCBill Log Digester uses a number of open source projects to work properly:
 * [haml] - Very easy to use html
 * [groupdate] - Group dates by day, week, month, ...
 
-
-
 ## Installation
---------------
-
-Source
-
 
 $ git clone https://github.com/martinbrambati/ccbill-log-digester digester
 $ bundle install
@@ -42,7 +33,6 @@ $ rails s
 
 
 ## Configuration
----------------
 
 Import logs from production logs
 
@@ -52,10 +42,8 @@ $ enter http://localhost:3000/logs/import?site=site_name
 
 
 ## License
-----
 
 MIT
-
 
 **Free Software, Hell Yeah!**
 
