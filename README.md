@@ -11,6 +11,9 @@ This preliminary version "digests" the log files that ccbill save on your site. 
 * Errors %
 * Errors over time by type
 
+<img src="http://i.imgur.com/s1vVHca.png?1" title="Ccbill Log digester">
+
+
 Version
 ----
 
